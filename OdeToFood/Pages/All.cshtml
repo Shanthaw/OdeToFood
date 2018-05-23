@@ -1,0 +1,18 @@
+﻿@page
+@model AllModel
+@{ 
+    ViewBag.Title = "Page - Listing All";
+}
+
+<table>
+    @foreach (var restuarant in Model.Restaurants)
+    {
+    <tr>
+        <td><a asp-page="ResDetails" asp-route-id="@restuarant.Id">@restuarant.Id</a></td>
+        <td>@restuarant.Name</td>
+        <td>@restuarant.Cuisine.ToString()</td>
+        <td><a asp-page="ResEdit" asp-route-id="@restuarant.Id">Edit</a></td>
+    </tr>
+    }
+</table>
+<a asp-page="ResCreate">Add restuarant</a>

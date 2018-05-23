@@ -1,0 +1,17 @@
+﻿@page "{id?}"
+@model ResDetailsModel
+@{
+    ViewBag.Title = "ResDetails";
+    
+}
+
+<h2>ResDetails</h2>
+
+<h1>
+    @Model.restaurant.Name
+</h1>
+<div>
+    Cuisine: @Model.restaurant.Cuisine
+</div>
+<div><a asp-page="All">Back to list</a></div>
+

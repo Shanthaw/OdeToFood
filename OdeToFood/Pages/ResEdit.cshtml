@@ -1,0 +1,20 @@
+﻿@page "{id}"
+@model ResEditModel
+
+<h2>ResEdit</h2>
+<form method="post">
+    <input type="hidden" asp-for="Restuarant.Id" />
+    <div>
+        <label asp-for="Restuarant.Name"></label>
+        <input asp-for="Restuarant.Name" />
+        <span asp-validation-for="Restuarant.Name"></span>
+    </div>
+    <div>
+        <label asp-for="Restuarant.Cuisine"></label>
+        <select asp-for="Restuarant.Cuisine" asp-items="@Html.GetEnumSelectList<CuisineType>()"></select>
+        <span asp-validation-for="Restuarant.Cuisine"></span>
+    </div>
+    <input type="submit" name="save" value="Save" />
+</form>
+
+

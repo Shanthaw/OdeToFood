@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">OdeToFood</a>
+            </div>
+            <div class="navbar-right">
+                <vc:login-logout></vc:login-logout>
+            </div>
+        </div>
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+    <div>@DateTime.Now.ToString()</div>
+    <footer>
+        @RenderSection("footer", required: false)
+        <vc:greeter></vc:greeter>
+        @if (User.Identity.IsAuthenticated)
+        {
+
+            @foreach (var identity in User.Identities)
+            {
+
+                <div><h3>@identity.Name</h3></div>
+                <ul>
+                    @foreach (var item in identity.Claims)
+                    {
+                    <li> @item.Type -@item.Value</li>
+
+                    }
+                </ul>
+
+            }
+
+        }
+        else
+        {
+            <div>You are an anonymous user</div>
+        }
+    </footer>
+
+</body>
+</html>
