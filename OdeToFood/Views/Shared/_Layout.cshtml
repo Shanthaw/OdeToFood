@@ -17,36 +17,36 @@
             </div>
         </div>
     </nav>
-    <div>
+    <div class="container">
         @RenderBody()
-    </div>
-    <div>@DateTime.Now.ToString()</div>
-    <footer>
-        @RenderSection("footer", required: false)
-        <vc:greeter></vc:greeter>
-        @if (User.Identity.IsAuthenticated)
-        {
 
-            @foreach (var identity in User.Identities)
+        <div>@DateTime.Now.ToString()</div>
+        <footer>
+            @RenderSection("footer", required: false)
+            <vc:greeter></vc:greeter>
+            @if (User.Identity.IsAuthenticated)
             {
 
-                <div><h3>@identity.Name</h3></div>
-                <ul>
-                    @foreach (var item in identity.Claims)
-                    {
-                    <li> @item.Type -@item.Value</li>
+                @foreach (var identity in User.Identities)
+                {
 
-                    }
-                </ul>
+                    <div><h3>@identity.Name</h3></div>
+                    <ul>
+                        @foreach (var item in identity.Claims)
+                        {
+                            <li> @item.Type -@item.Value</li>
+
+                        }
+                    </ul>
+
+                }
 
             }
-
-        }
-        else
-        {
-            <div>You are an anonymous user</div>
-        }
-    </footer>
-
+            else
+            {
+                <div>You are an anonymous user</div>
+            }
+        </footer>
+    </div>
 </body>
 </html>
