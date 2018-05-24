@@ -1,13 +1,15 @@
 ﻿@model Restaurant
 
 <section class="card">
+
+    <h3 class="card-title">@Model.Name</h3>
     <div class="card-body">
-        <h3 class="card-title">@Model.Name</h3>
         <div class="card-text">Cuisine: @Model.Cuisine</div>
+    </div>
     <div class="card-footer">
         <a class="btn btn-secondary" asp-action="Details" asp-route-id="@Model.Id">More..</a>
         <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
     </div>
-    <div></div>
-    </div>
+
+
 </section>
